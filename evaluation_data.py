@@ -1,3 +1,5 @@
+import random
+
 why_i_like_this_course = [
     "我最喜欢这门课程的是它的实用性和与现实生活的联系紧密，让我能够学到很多能够在工作和日常生活中直接应用的知识和技能。",
     "我最喜欢这门课程的是它的教学方式和资源丰富多样，老师讲解清晰、生动有趣，而且提供了大量的案例、实例和练习题，帮助我更好地理解和掌握课程内容",
@@ -41,20 +43,21 @@ what_to_enhance_teacher = [
 ]
 
 course_evaluation = {
-    "这门课程我最喜欢什么？": why_i_like_this_course,
-    "我认为本课程应从哪些方面需要进一步改进和提高？": what_to_enhance,
-    "我平均每周在这门课程上花费多少小时？": the_cost_time,
-    "在参与这门课之前，我对这个学科领域兴趣如何": what_i_am_interested,
-    "我对该课程的课堂参与度（包括出勤、回答问题等）": participation,
+    "why_i_like_this_course": why_i_like_this_course,
+    "what_to_enhance": what_to_enhance,
+    "the_cost_time": the_cost_time,
+    "what_i_am_interested": what_i_am_interested,
+    "participation": participation,
 }
 
 teacher_evaluation = {
-    "这位老师的教学，你最喜欢什么？": why_i_like_this_teacher,
-    "您对老师有哪些意见和建议？": what_to_enhance_teacher,
+    "why_i_like_this_teacher": why_i_like_this_teacher,
+    "what_to_enhance_teacher": what_to_enhance_teacher,
 }
 
-evaluation = {
-    "course_evaluation": course_evaluation,
-    "teacher_evaluation": teacher_evaluation
-}
+evaluation = {**course_evaluation, **teacher_evaluation}
 
+
+def random_list_info(my_list):
+    index = random.randint(0, len(my_list) - 1)
+    return my_list[index]
