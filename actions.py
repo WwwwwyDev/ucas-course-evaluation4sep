@@ -24,7 +24,7 @@ def clickFirstEvaluation(driver: WebDriver) -> str:
         inner_text = element.get_attribute('innerText')
         if inner_text and inner_text == "评估":
             driver.execute_script("arguments[0].click();", element)
-            return f"[info] 前{str(cnt-1)}已评估完成，正在评估第{str(cnt)}个"
+            return f"[info] 正在评估未评估列表的第{str(cnt)}个"
 
 
 actions_list = [crackCaptcha, clickFirstEvaluation]

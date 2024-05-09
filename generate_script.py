@@ -21,18 +21,45 @@ login_step = [
         "xpath": "//*[@id=\"pwd1\"]",
         "text": "__v-password__",
     }, {
+        "method": "crackCaptcha",
+        "xpath": "//*[@id=\"code\"]",
+        "if": {
+            "condition": "presence",
+            "xpath": "//*[@id=\"code\"]",
+        }
+    }, {
+        "method": "input",
+        "xpath": "//*[@id=\"certCode1\"]",
+        "text": "__PRE_RETURN__",
+        "if": {
+            "condition": "presence",
+            "xpath": "//*[@id=\"certCode1\"]",
+        }
+    }, {
         "method": "click",
         "xpath": "//*[@id=\"sb1\"]"
+    }, {
+        "method": "interval",
+        "num": 1
     }
 ]
 
 into_evaluation_step = [
     {
-        "method": "click",
-        "xpath": "//*[@id=\"main-metro\"]/ul/li[3]/a[3]"
+        "check": {
+            "condition": "presence",
+            "xpath": "//*[@id=\"main-metro\"]/ul/li[3]/a[3]",
+            "fail_script": [{
+                "method": "log",
+                "msg": "[fail] 登录失败"
+            }]
+        }
     }, {
         "method": "log",
         "msg": "1.登录成功"
+    }, {
+        "method": "click",
+        "xpath": "//*[@id=\"main-metro\"]/ul/li[3]/a[3]"
     }, {
         "method": "alert",
         "operation": "accept",
