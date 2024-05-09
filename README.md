@@ -29,4 +29,4 @@ python main.py --username "your username" --password "your password"
 
 ## 申明
 
-本脚本遵循开源协议，如果非法使用，出现的任何问题与作者无关。
+本脚遵循开源协议，如果非法使用，出现的任何问题与作者无关。
