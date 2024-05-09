@@ -7,16 +7,24 @@ import ddddocr
 @cpt.check(exclude="driver")
 @cpt.alias("captcha")
 def crackCaptcha(driver: WebDriver, xpath: str) -> str:
-    """
-    Handling keyboard input events
-    :param driver: selenium webdriver
-    :param xpath: The xpath path of the captcha
-    """
     element = driver.find_element(By.XPATH, xpath)
     pic = element.screenshot_as_png
     ocr = ddddocr.DdddOcr(show_ad=False)
     res = ocr.classification(pic)
     return res
 
+@cpt.check(exclude="driver")
+@cpt.alias("captcha")
+def clickFirstEvaluation(driver: WebDriver) -> str:
+    elements = driver.find_elements(By.CSS_SELECTOR,
+                                    "#main-content > div > div.m-cbox.m-lgray > div.mc-body > table > tbody > tr > td:nth-child(8) > a")
+    cnt = 0
+    for element in elements:
+        cnt += 1
+        inner_text = element.get_attribute('innerText')
+        if inner_text and inner_text == "评估":
+            driver.execute_script("arguments[0].click();", element)
+            return f"[info] 前{str(cnt-1)}已评估完成，正在评估第{str(cnt)}个"
 
-actions_list = [crackCaptcha]
+
+actions_list = [crackCaptcha, clickFirstEvaluation]
