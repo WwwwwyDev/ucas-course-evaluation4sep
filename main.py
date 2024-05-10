@@ -1,5 +1,5 @@
 import argparse
-from driver import get_driver
+from driver import get_driver, get_chrome_user_agent
 from actions import actions_list
 from conditions import condition_list
 import crawlipt as cpt
