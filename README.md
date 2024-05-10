@@ -2,7 +2,7 @@
 中国科学院大学 sep系统课程自动评价，python>=3.10
 
 ## 使用步骤
-在使用前，你需要安装[谷歌浏览器](https://www.google.com/chrome/index.html)
+在使用前，你需要安装[谷歌浏览器](https://www.google.com/chrome/index.html)，并在谷歌浏览器中登录进sep系统一次
 
 ### step1
 克隆仓库到本地 
