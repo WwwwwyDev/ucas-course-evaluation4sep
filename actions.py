@@ -13,6 +13,7 @@ def crackCaptcha(driver: WebDriver, xpath: str) -> str:
     res = ocr.classification(pic)
     return res
 
+
 @cpt.check(exclude="driver")
 @cpt.alias("captcha")
 def clickFirstEvaluation(driver: WebDriver) -> str:
