@@ -49,10 +49,24 @@ into_evaluation_step = [
         "check": {
             "condition": "presence",
             "xpath": "//*[@id=\"main-metro\"]/ul/li[3]/a[3]",
-            "fail_script": [{
-                "method": "log",
-                "msg": "[fail] 登录失败"
-            }]
+            "wait": 3,
+            "fail_script": [
+                {
+                    "method": "get.innerText",
+                    "xpath": "//*[@id=\"time_line\"]/div/form[2]/div[1]/div/div/div[1]",
+                    "check": {
+                        "condition": "presence",
+                        "xpath": "//*[@id=\"time_line\"]/div/form[2]/div[1]/div/div/div[1]",
+                        "wait": 3,
+                        "fail_script": {
+                                "method": "log",
+                                "msg": "你还未信任设备，请使用谷歌浏览器登录进sep系统一次"
+                            }
+                    }
+                }, {
+                    "method": "log",
+                    "msg": "__PRE_RETURN__"
+                }]
         }
     }, {
         "method": "log",
