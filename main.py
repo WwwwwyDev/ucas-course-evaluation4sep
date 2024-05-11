@@ -24,5 +24,7 @@ webdriver = get_driver(is_headless=True)
 loader = cpt.Script(script=script)
 v = EvaluationVariable(username=args.username,
                        password=args.password)
+
 loader.process(webdriver=webdriver, variable=v)
+
 webdriver.quit()
