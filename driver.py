@@ -27,6 +27,8 @@ def get_driver(is_headless=False, is_eager=False,
         option.page_load_strategy = 'eager'
     option.add_experimental_option('excludeSwitches', ['enable-automation'])
     webdriver = wd.Chrome(service=Service(chrome_driver_path), options=option)
+    with open("stealth.min.js", "r") as f:
+        stealth_js = f.readlines()[-1]
     webdriver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
         "source": """
         Object.defineProperty(navigator, 'webdriver', {
@@ -34,6 +36,7 @@ def get_driver(is_headless=False, is_eager=False,
         })
       """
     })
+    webdriver.execute_script(stealth_js)
     return webdriver
 
 
@@ -43,3 +46,8 @@ def get_chrome_user_agent():
     user_agent = driver.execute_script('return navigator.userAgent')
     driver.quit()
     return user_agent
+
+if __name__ == '__main__':
+    with open("stealth.min.js", "r") as f:
+        js_code = f.readlines()
+        print(js_code)
