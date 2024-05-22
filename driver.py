@@ -48,8 +48,3 @@ def get_chrome_user_agent():
     user_agent = driver.execute_script('return navigator.userAgent')
     driver.quit()
     return user_agent
-
-if __name__ == '__main__':
-    with open("stealth.min.js", "r") as f:
-        js_code = f.readlines()
-        print(js_code)
