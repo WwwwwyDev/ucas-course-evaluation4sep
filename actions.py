@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 import crawlipt as cpt
 import ddddocr
+import onnxruntime
+
+onnxruntime.set_default_logger_severity(3)
 
 
 @cpt.check(exclude="driver")
@@ -9,7 +12,7 @@ import ddddocr
 def crackCaptcha(driver: WebDriver, xpath: str) -> str:
     element = driver.find_element(By.XPATH, xpath)
     pic = element.screenshot_as_png
-    ocr = ddddocr.DdddOcr(show_ad=False)
+    ocr = ddddocr.DdddOcr(show_ad=False, beta=True)
     res = ocr.classification(pic)
     return res
 
