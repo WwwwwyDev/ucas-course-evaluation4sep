@@ -2,7 +2,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver as wd
 from selenium.webdriver.chrome.service import Service
 
+print("[info] 正在适配谷歌驱动")
 chrome_driver_path = ChromeDriverManager().install()
+print("[info] 谷歌驱动适配完成, 路径:" + chrome_driver_path)
 
 
 def get_driver(is_headless=False, is_eager=False,

@@ -1,5 +1,5 @@
 import argparse
-from driver import get_driver, get_chrome_user_agent
+from driver import get_driver
 from actions import actions_list
 from conditions import condition_list
 import crawlipt as cpt
@@ -19,7 +19,6 @@ parser.add_argument('--username', type=str, help='输入用户名')
 parser.add_argument('--password', type=str, help='输入密码')
 
 args = parser.parse_args()
-
 webdriver = get_driver(is_headless=True)
 loader = cpt.Script(script=script)
 v = EvaluationVariable(username=args.username,
