@@ -24,6 +24,7 @@ pip install -r requirements.txt
 执行程序
 
 ```shell
+python generate_script.py
 python main.py --username "your username" --password "your password"
 ```
 
