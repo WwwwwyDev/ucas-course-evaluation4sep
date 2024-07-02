@@ -73,7 +73,13 @@ into_evaluation_step = [
         "msg": "1.登录成功"
     }, {
         "method": "click",
-        "xpath": "//*[@id=\"main-metro\"]/ul/li[3]/a[3]"
+        "xpath": "//*[@id=\"main-metro\"]/ul/li[1]/a[6]""
+    }, {
+        "method": "click",
+        "xpath": "//*[@id=\"sidebar\"]/ul/li[4]"
+    }, {
+        "method": "click",
+        "xpath": "//*[@id=\"sidebar\"]/ul/li[4]/ul/li"
     }, {
         "method": "alert",
         "operation": "accept",
@@ -81,12 +87,6 @@ into_evaluation_step = [
             "condition": "alert_is_present",
             "wait": 3
         }
-    }, {
-        "method": "click",
-        "xpath": "//*[@id=\"sidebar\"]/ul/li[4]"
-    }, {
-        "method": "click",
-        "xpath": "//*[@id=\"sidebar\"]/ul/li[4]/ul/li"
     }, {
         "method": "url",
         "return_flag": "eval_course_uri"
